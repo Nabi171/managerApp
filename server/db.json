@@ -116,21 +116,6 @@
       "id": 3
     },
     {
-      "taskName": "New Task",
-      "teamMember": {
-        "name": "Sumit Saha",
-        "avatar": "/images/avatars/sumit.png",
-        "id": 1
-      },
-      "project": {
-        "id": 1,
-        "projectName": "Scoreboard",
-        "colorClass": "color-scoreboard"
-      },
-      "deadline": "2023-03-11",
-      "id": 4
-    },
-    {
       "taskName": "Fix a bug",
       "teamMember": {
         "name": "Md Salahuddin",
@@ -145,6 +130,13 @@
       },
       "id": 5,
       "status": "completed"
+    },
+    {
+      "taskName": "Nabitask",
+      "name": "Akash Ahmed",
+      "projectName": "Product Cart",
+      "deadline": "2023-03-06",
+      "id": 6
     }
   ]
 }

@@ -1,5 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useAddTasksMutation } from '../../../features/task/apiSlice';
+import { useNavigate } from 'react-router';
 const AddTask = () => {
+    const [addTasks, { isLoading, isSuccess, isError }] = useAddTasksMutation();
+    const [taskName, setTaskName] = useState("");
+    const [name, setName] = useState("");
+    const [projectName, setprojectName] = useState("");
+    const [deadline, setDeadline] = useState("");
+    const navigate = useNavigate();
+
+
+
+    const handleName = (e) => {
+        setName(e.target.value)
+    }
+    const handleProjectName = (e) => {
+        setprojectName(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addTasks({
+            taskName,
+            name,
+            projectName,
+            deadline,
+
+        });
+        navigate('/')
+    };
+
     return (
         <div>
             {/* <Navbar></Navbar> */}
@@ -10,10 +40,14 @@ const AddTask = () => {
         </h1>
 
                     <div className="justify-center mb-10 space-y-2 md:flex md:space-y-0">
-                        <form className="space-y-6">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="space-y-6">
                             <div className="fieldContainer">
                                 <label for="lws-taskName">Task Name</label>
                                 <input
+                                    value={taskName}
+                                    onChange={(e) => setTaskName(e.target.value)}
                                     type="text"
                                     name="taskName"
                                     id="lws-taskName"
@@ -24,8 +58,13 @@ const AddTask = () => {
 
                             <div className="fieldContainer">
                                 <label>Assign To</label>
-                                <select name="teamMember" id="lws-teamMember" required>
-                                    <option value="" hidden selected>Select Job</option>
+                                <select
+                                    value={name}
+                                    onChange={handleName}
+                                    name="teamMember" id="lws-teamMember" required>
+                                    <option
+                                        value=""
+                                        hidden selected>Select Job</option>
                                     <option>Sumit Saha</option>
                                     <option>Sadh Hasan</option>
                                     <option>Akash Ahmed</option>
@@ -37,8 +76,13 @@ const AddTask = () => {
                             </div>
                             <div className="fieldContainer">
                                 <label for="lws-projectName">Project Name</label>
-                                <select id="lws-projectName" name="projectName" required>
-                                    <option value="" hidden selected>Select Project</option>
+                                <select
+                                    value={projectName}
+                                    onChange={handleProjectName}
+                                    id="lws-projectName" name="projectName" required>
+                                    <option
+                                        value=""
+                                        hidden selected>Select Project</option>
                                     <option>Scoreboard</option>
                                     <option>Flight Booking</option>
                                     <option>Product Cart</option>
@@ -50,7 +94,10 @@ const AddTask = () => {
 
                             <div className="fieldContainer">
                                 <label for="lws-deadline">Deadline</label>
-                                <input type="date" name="deadline" id="lws-deadline" required />
+                                <input
+                                    value={deadline}
+                                    onChange={(e) => setDeadline(e.target.value)}
+                                    type="date" name="deadline" id="lws-deadline" required />
                             </div>
 
                             <div className="text-right">

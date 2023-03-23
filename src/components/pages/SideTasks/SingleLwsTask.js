@@ -6,9 +6,17 @@ import img4 from '../../../images/avatar/salahuddin.png'
 import img5 from '../../../images/avatar/riyadh.png'
 import img6 from '../../../images/avatar/ferdous.png'
 import img7 from '../../../images/avatar/almas.png'
+import { useDeleteTaskMutation } from '../../../features/task/apiSlice';
+import { useDispatch } from 'react-redux';
 const SingleLwsTask = ({ task }) => {
-    const { taskName, teamMember, project, deadline, status } = task;
-    const Imgid = task.teamMember.id;
+    const { taskName, deadline, status, id } = task;
+    const Imgid = id;
+    const [deleteTask, { isSuccess, isLoading, isError }] = useDeleteTaskMutation();
+    const dispatch = useDispatch();
+    const handleDelete = () => {
+        deleteTask(id);
+        window.location.reload();
+    }
     return (
         <div className="lws-task">
             <div className="flex items-center gap-2 text-slate">
@@ -18,7 +26,10 @@ const SingleLwsTask = ({ task }) => {
 
             <div className="lws-taskContainer">
                 <h1 className="lws-task-title">{taskName}</h1>
-                <span className={`lws-task-badge ${project.colorClass}`}>{project.projectName}</span>
+                {/* {<span className={`lws-task-badge ${task.project.colorClass}`}>{task.project.projectName}</span>} */}
+                {/* {task.project.projectName ? <span className={`lws-task-badge colorClass`}>{task.project.projectName}</span>
+                    : <span className={`lws-task-badge colorClass`}>{task.projectName}</span>
+                } */}
             </div>
 
             <div className="flex items-center gap-4">
@@ -30,10 +41,14 @@ const SingleLwsTask = ({ task }) => {
                     {Imgid == 5 && <img src={img5} className="team-avater" />}
                     {Imgid == 6 && <img src={img6} className="team-avater" />}
                     {Imgid == 7 && <img src={img7} className="team-avater" />}
-                    <p className="lws-task-assignedOn">{teamMember.name}</p>
+                    {/* <p className="lws-task-assignedOn">{task.teamMember.name}||
+                    {task.name}
+                    </p> */}
                 </div>
                 {/* <!-- delete button will not shown to the ui, until the status of the task will be completed --> */}
-                {status !== "completed" && <button className="lws-delete">
+                {status !== "completed" && <button
+                    onClick={handleDelete}
+                    className="lws-delete">
                     <svg
                         fill="none"
                         viewBox="0 0 24 24"
@@ -67,7 +82,7 @@ const SingleLwsTask = ({ task }) => {
                             <option value="completed">Completed</option></>}
                 </select>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -30,7 +30,13 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["tasks"],
         }),
-
+        deleteTask: builder.mutation({
+            query: (id) => ({
+                url: `/tasks/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["tasks"],
+        }),
 
 
     }),
@@ -41,6 +47,7 @@ export const {
     useGetTeamQuery,
     useGetTasksQuery,
     useAddTasksMutation,
+    useDeleteTaskMutation,
 
 
 } = apiSlice;
