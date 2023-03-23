@@ -1,35 +1,8 @@
 import React, { useState } from 'react';
-import { useAddTasksMutation } from '../../../features/task/apiSlice';
-import { useNavigate } from 'react-router';
 import Navbar from '../Nav/Navbar';
-const AddTask = () => {
-    const [addTasks, { isLoading, isSuccess, isError }] = useAddTasksMutation();
-    const [taskName, setTaskName] = useState("");
-    const [name, setName] = useState("");
-    const [projectName, setprojectName] = useState("");
-    const [deadline, setDeadline] = useState("");
-    const navigate = useNavigate();
 
 
-
-    const handleName = (e) => {
-        setName(e.target.value)
-    }
-    const handleProjectName = (e) => {
-        setprojectName(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        addTasks({
-            taskName,
-            name,
-            projectName,
-            deadline,
-
-        });
-        navigate('/')
-    };
+const EditTask = () => {
 
     return (
         <div>
@@ -42,13 +15,12 @@ const AddTask = () => {
 
                     <div className="justify-center mb-10 space-y-2 md:flex md:space-y-0">
                         <form
-                            onSubmit={handleSubmit}
+
                             className="space-y-6">
                             <div className="fieldContainer">
                                 <label for="lws-taskName">Task Name</label>
                                 <input
-                                    value={taskName}
-                                    onChange={(e) => setTaskName(e.target.value)}
+
                                     type="text"
                                     name="taskName"
                                     id="lws-taskName"
@@ -60,8 +32,7 @@ const AddTask = () => {
                             <div className="fieldContainer">
                                 <label>Assign To</label>
                                 <select
-                                    value={name}
-                                    onChange={handleName}
+
                                     name="teamMember" id="lws-teamMember" required>
                                     <option
                                         value=""
@@ -78,8 +49,7 @@ const AddTask = () => {
                             <div className="fieldContainer">
                                 <label for="lws-projectName">Project Name</label>
                                 <select
-                                    value={projectName}
-                                    onChange={handleProjectName}
+
                                     id="lws-projectName" name="projectName" required>
                                     <option
                                         value=""
@@ -96,8 +66,7 @@ const AddTask = () => {
                             <div className="fieldContainer">
                                 <label for="lws-deadline">Deadline</label>
                                 <input
-                                    value={deadline}
-                                    onChange={(e) => setDeadline(e.target.value)}
+
                                     type="date" name="deadline" id="lws-deadline" required />
                             </div>
 
@@ -112,4 +81,4 @@ const AddTask = () => {
     );
 };
 
-export default AddTask;
+export default EditTask;
