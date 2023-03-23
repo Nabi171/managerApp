@@ -65,7 +65,6 @@ const SingleLwsTask = ({ task }) => {
                         <><option value="pending" selected>Pending</option>
                             <option value="inProgress">InProgress</option>
                             <option value="completed">Completed</option></>}
-
                 </select>
             </div>
         </div>
