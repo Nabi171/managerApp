@@ -42,7 +42,7 @@ const Home = () => {
 
                 <SideTasks
                     search={search}
-                    handleSearchChange={handleSearchChange}
+
                 />
             </div>
         </div>
