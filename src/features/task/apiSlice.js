@@ -22,6 +22,14 @@ export const apiSlice = createApi({
             keepUnusedDataFor: 600,
             providesTags: ["tags"],
         }),
+        addTasks: builder.mutation({
+            query: (data) => ({
+                url: "/tasks",
+                method: "POST",
+                body: data,
+            }),
+            invalidatesTags: ["tasks"],
+        }),
 
 
 
@@ -34,6 +42,7 @@ export const {
     useGetProjectsQuery,
     useGetTeamQuery,
     useGetTasksQuery,
+    useAddTasksMutation,
 
 
 } = apiSlice;
