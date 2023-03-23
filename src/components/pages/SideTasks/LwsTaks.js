@@ -2,7 +2,7 @@ import React from 'react';
 import { useGetTasksQuery } from '../../../features/task/apiSlice';
 import SingleLwsTask from './SingleLwsTask';
 
-const LwsTaks = () => {
+const LwsTaks = ({ search }) => {
     const { data: tasks, isLoading, isError } = useGetTasksQuery();
     // decide what to render
     let content = null;
@@ -24,7 +24,16 @@ const LwsTaks = () => {
         content = <p>There is no books</p>;
     }
     if (!isLoading && !isError && tasks.length > 0) {
-        content = tasks.map((task) => <SingleLwsTask key={task.id} task={task} />)
+
+        if (!search) { content = tasks.map((task) => <SingleLwsTask key={task.id} task={task} />) }
+        else if (search) {
+            let tasks2 = tasks.filter(task => task.taskName.toLowerCase().includes(search.toLowerCase()));
+            content = tasks2.map((task) => <SingleLwsTask key={task.id} task={task} />);
+        }
+
+
+
+        // content = tasks.map((task) => <SingleLwsTask key={task.id} task={task} />)
 
 
     }
