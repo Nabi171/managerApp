@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAddTasksMutation } from '../../../features/task/apiSlice';
+// import { useAddTasksMutation } from '../../../features/task/apiSlice';
 const AddNew = () => {
-    const [addTasks, { isLoading, isSuccess, isError }] = useAddTasksMutation();
+    // const [addTasks, { isLoading, isSuccess, isError }] = useAddTasksMutation();
     return (
         <div className="justify-between mb-10 space-y-2 md:flex md:space-y-0">
             <Link to="/addTask" className="lws-addnew group">

@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from '../Nav/Navbar';
-
 const AddTask = () => {
     return (
         <div>
