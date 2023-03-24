@@ -18,16 +18,14 @@ const Form = ({ task }) => {
     const [teamMember, setTeamMember] = useState(
 
         { name: initialTeamMember });
-    // const [teamMember, setName] = useState({
-    //     name: ""
-    // });
+
+
+    const [project, setProject] = useState(initialProject);
+    const [deadline, setDeadline] = useState(initialDeadline);
     const handleName = (e) => {
         const { name, value } = e.target;
         setTeamMember((prevFormData) => ({ ...prevFormData, [name]: value }))
-        // setName(e.target.value)
     }
-    const [project, setProject] = useState(initialProject);
-    const [deadline, setDeadline] = useState(initialDeadline);
     const handleSubmit = (e) => {
         e.preventDefault();
         editTask({
