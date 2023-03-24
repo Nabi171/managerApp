@@ -71,8 +71,10 @@
   "tasks": [
     {
       "taskName": "Change in Pushing",
-      "teamMember": "Akash Ahmed",
-      "project": "Flight Booking",
+      "teamMember": {
+        "name": "Sadh Hasan"
+      },
+      "project": "Book Store",
       "deadline": "2023-03-15",
       "id": 1,
       "status": "inProgress"

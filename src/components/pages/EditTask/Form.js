@@ -15,7 +15,17 @@ const Form = ({ task }) => {
     const [editTask, { isLoading, isError, isSuccess }] =
         useEditTaskMutation();
     const [taskName, setTaskName] = useState(initialTaskName);
-    const [teamMember, setTeamMember] = useState(initialTeamMember);
+    const [teamMember, setTeamMember] = useState(
+
+        { name: initialTeamMember });
+    // const [teamMember, setName] = useState({
+    //     name: ""
+    // });
+    const handleName = (e) => {
+        const { name, value } = e.target;
+        setTeamMember((prevFormData) => ({ ...prevFormData, [name]: value }))
+        // setName(e.target.value)
+    }
     const [project, setProject] = useState(initialProject);
     const [deadline, setDeadline] = useState(initialDeadline);
     const handleSubmit = (e) => {
@@ -53,9 +63,9 @@ const Form = ({ task }) => {
             <div className="fieldContainer">
                 <label>Assign To</label>
                 <select
-                    value={teamMember}
-                    onChange={(e) => setTeamMember(e.target.value)}
-                    name="teamMember" id="lws-teamMember" required>
+                    value={teamMember.name}
+                    onChange={handleName}
+                    name="name" id="lws-teamMember" required>
                     <option
                         value=""
                         hidden selected>Select Job</option>
