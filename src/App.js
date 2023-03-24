@@ -13,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/tasks/:taskId" element={<Home />} />
+
         <Route path="/addtask" element={<AddTask />} />
         <Route path="/editTask" element={<EditTask />} />
 

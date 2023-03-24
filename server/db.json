@@ -132,29 +132,17 @@
       "status": "completed"
     },
     {
-      "taskName": "Nabitask",
-      "name": "Akash Ahmed",
-      "projectName": "Product Cart",
-      "deadline": "2023-03-06",
-      "id": 6
-    },
-    {
-      "taskName": "sdfdsa",
-      "project": {
-        "name": "Akash Ahmed"
-      },
-      "projectName": "Book Store",
-      "deadline": "2023-03-28",
-      "id": 7
-    },
-    {
-      "taskName": "safd",
+      "taskName": "The Ramadan",
       "teamMember": {
         "name": "Sadh Hasan"
       },
-      "projectName": "Product Cart",
+      "project": {
+        "projectName": "Product Cart",
+        "colorClass": "color-productCart",
+        "undefined": "Product Cart"
+      },
       "deadline": "2023-03-14",
-      "id": 8
+      "id": 6
     }
   ]
 }

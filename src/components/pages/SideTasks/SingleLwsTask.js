@@ -31,10 +31,10 @@ const SingleLwsTask = ({ task }) => {
 
             <div className="lws-taskContainer">
                 <h1 className="lws-task-title">{taskName}</h1>
-                {/* {<span className={`lws-task-badge ${task.project.colorClass}`}>{task.project.projectName}</span>} */}
-                {/* {task.project.projectName ? <span className={`lws-task-badge colorClass`}>{task.project.projectName}</span>
+                {<span className={`lws-task-badge ${task.project.colorClass}`}>{task.project.projectName}</span>}
+                {task.project.projectName ? <span className={`lws-task-badge colorClass`}>{task.project.projectName}</span>
                     : <span className={`lws-task-badge colorClass`}>{task.projectName}</span>
-                } */}
+                }
             </div>
 
             <div className="flex items-center gap-4">
@@ -46,9 +46,9 @@ const SingleLwsTask = ({ task }) => {
                     {Imgid == 5 && <img src={img5} className="team-avater" />}
                     {Imgid == 6 && <img src={img6} className="team-avater" />}
                     {Imgid == 7 && <img src={img7} className="team-avater" />}
-                    {/* <p className="lws-task-assignedOn">{task.teamMember.name}||
+                    <p className="lws-task-assignedOn">{task.teamMember.name}||
                     {task.name}
-                    </p> */}
+                    </p>
                 </div>
                 {/* <!-- delete button will not shown to the ui, until the status of the task will be completed --> */}
                 {status !== "completed" && <button

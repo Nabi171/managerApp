@@ -8,7 +8,10 @@ const AddTask = () => {
     const [teamMember, setName] = useState({
         name: ""
     });
-    const [projectName, setprojectName] = useState("");
+    const [project, setprojectName] = useState({
+        projectName: "Product Cart",
+        colorClass: "color-productCart"
+    });
     const [deadline, setDeadline] = useState("");
     const navigate = useNavigate();
 
@@ -23,16 +26,18 @@ const AddTask = () => {
         // setName(e.target.value)
     }
     const handleProjectName = (e) => {
-        setprojectName(e.target.value)
+        const { projectName, value } = e.target;
+        setprojectName((prevFormData) => ({ ...prevFormData, [projectName]: value }))
+        // setprojectName(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(teamMember, taskName, projectName)
+        console.log(teamMember, taskName, project)
         addTasks({
             taskName,
             teamMember,
-            projectName,
+            project,
             deadline,
 
         });
@@ -87,9 +92,9 @@ const AddTask = () => {
                             <div className="fieldContainer">
                                 <label for="lws-projectName">Project Name</label>
                                 <select
-                                    value={projectName}
+                                    // value={project.projectName}
                                     onChange={handleProjectName}
-                                    id="lws-projectName" name="projectName" required>
+                                    id="lws-projectName" projectName="projectName" required>
                                     <option
                                         value=""
                                         hidden selected>Select Project</option>
