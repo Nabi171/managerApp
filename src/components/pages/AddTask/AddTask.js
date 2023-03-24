@@ -11,7 +11,10 @@ const AddTask = () => {
     const navigate = useNavigate();
 
 
-
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    //   };
     const handleName = (e) => {
         setName(e.target.value)
     }
