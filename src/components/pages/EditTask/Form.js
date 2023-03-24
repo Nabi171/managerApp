@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEditTaskMutation } from '../../../features/task/apiSlice';
 
-const Form = () => {
+const Form = ({ task }) => {
+    const {
+        id,
+        taskName: initialTaskName,
+        teamMember: initialTeamMember,
+        project: initialProject,
+        deadline: initialDeadline,
+
+    } = task;
+    const [editTask, { isLoading, isError, isSuccess }] =
+        useEditTaskMutation();
+    const [taskName, setTaskName] = useState(initialTaskName);
+    const [teamMember, setTeamMember] = useState(initialTeamMember);
+    const [project, setProject] = useState(initialProject);
+    const [deadline, setDeadline] = useState(initialDeadline);
     return (
         <form
 
@@ -8,7 +23,7 @@ const Form = () => {
             <div className="fieldContainer">
                 <label for="lws-taskName">Task Name</label>
                 <input
-
+                    value={taskName}
                     type="text"
                     name="taskName"
                     id="lws-taskName"
