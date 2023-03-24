@@ -70,17 +70,9 @@
   ],
   "tasks": [
     {
-      "taskName": "Task One",
-      "teamMember": {
-        "name": "Saad Hasan",
-        "avatar": "/images/avatars/sadh.png",
-        "id": 2
-      },
-      "project": {
-        "id": 1,
-        "projectName": "Scoreboard",
-        "colorClass": "color-scoreboard"
-      },
+      "taskName": "Product Cart",
+      "teamMember": "Akash Ahmed",
+      "project": "Flight Booking",
       "deadline": "2023-03-15",
       "id": 1,
       "status": "inProgress"

@@ -53,7 +53,8 @@ const Form = ({ task }) => {
             <div className="fieldContainer">
                 <label>Assign To</label>
                 <select
-
+                    value={teamMember}
+                    onChange={(e) => setTeamMember(e.target.value)}
                     name="teamMember" id="lws-teamMember" required>
                     <option
                         value=""
@@ -70,7 +71,8 @@ const Form = ({ task }) => {
             <div className="fieldContainer">
                 <label for="lws-projectName">Project Name</label>
                 <select
-
+                    value={project}
+                    onChange={(e) => setProject(e.target.value)}
                     id="lws-projectName" name="projectName" required>
                     <option
                         value=""
@@ -87,7 +89,8 @@ const Form = ({ task }) => {
             <div className="fieldContainer">
                 <label for="lws-deadline">Deadline</label>
                 <input
-
+                    value={deadline}
+                    onChange={(e) => setDeadline(e.target.value)}
                     type="date" name="deadline" id="lws-deadline" required />
             </div>
 
