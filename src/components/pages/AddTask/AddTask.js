@@ -5,7 +5,9 @@ import Navbar from '../Nav/Navbar';
 const AddTask = () => {
     const [addTasks, { isLoading, isSuccess, isError }] = useAddTasksMutation();
     const [taskName, setTaskName] = useState("");
-    const [name, setName] = useState("");
+    const [teamMember, setName] = useState({
+        name: ""
+    });
     const [projectName, setprojectName] = useState("");
     const [deadline, setDeadline] = useState("");
     const navigate = useNavigate();
@@ -16,8 +18,8 @@ const AddTask = () => {
     //     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     //   };
     const handleName = (e) => {
-        const { project, value } = e.target;
-        setName((prevFormData) => ({ ...prevFormData, [project]: value }))
+        const { name, value } = e.target;
+        setName((prevFormData) => ({ ...prevFormData, [name]: value }))
         // setName(e.target.value)
     }
     const handleProjectName = (e) => {
@@ -26,15 +28,16 @@ const AddTask = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // addTasks({
-        //     taskName,
-        //     name,
-        //     projectName,
-        //     deadline,
+        console.log(teamMember, taskName, projectName)
+        addTasks({
+            taskName,
+            teamMember,
+            projectName,
+            deadline,
 
-        // });
-        // navigate('/')
-        console.log(name)
+        });
+        navigate('/')
+
     };
 
     return (
@@ -66,9 +69,9 @@ const AddTask = () => {
                             <div className="fieldContainer">
                                 <label>Assign To</label>
                                 <select
-                                    value={name}
+                                    value={teamMember.name}
                                     onChange={handleName}
-                                    name="teamMember" id="lws-teamMember" required>
+                                    name="name" id="lws-teamMember" required>
                                     <option
                                         value=""
                                         hidden selected>Select Job</option>
