@@ -16,7 +16,9 @@ const AddTask = () => {
     //     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     //   };
     const handleName = (e) => {
-        setName(e.target.value)
+        const { project, value } = e.target;
+        setName((prevFormData) => ({ ...prevFormData, [project]: value }))
+        // setName(e.target.value)
     }
     const handleProjectName = (e) => {
         setprojectName(e.target.value)
@@ -24,14 +26,15 @@ const AddTask = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTasks({
-            taskName,
-            name,
-            projectName,
-            deadline,
+        // addTasks({
+        //     taskName,
+        //     name,
+        //     projectName,
+        //     deadline,
 
-        });
-        navigate('/')
+        // });
+        // navigate('/')
+        console.log(name)
     };
 
     return (
