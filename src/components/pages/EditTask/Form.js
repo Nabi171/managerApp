@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useEditTaskMutation } from '../../../features/task/apiSlice';
+import { useNavigate } from 'react-router';
 
 const Form = ({ task }) => {
+    const navigate = useNavigate();
     const {
         id,
         taskName: initialTaskName,
@@ -16,14 +18,30 @@ const Form = ({ task }) => {
     const [teamMember, setTeamMember] = useState(initialTeamMember);
     const [project, setProject] = useState(initialProject);
     const [deadline, setDeadline] = useState(initialDeadline);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        editTask({
+            id,
+            data: {
+                taskName,
+                teamMember,
+                project,
+                deadline,
+
+            },
+        });
+        navigate('/')
+        window.location.reload();
+    };
     return (
         <form
-
+            onSubmit={handleSubmit}
             className="space-y-6">
             <div className="fieldContainer">
                 <label for="lws-taskName">Task Name</label>
                 <input
                     value={taskName}
+                    onChange={(e) => setTaskName(e.target.value)}
                     type="text"
                     name="taskName"
                     id="lws-taskName"
