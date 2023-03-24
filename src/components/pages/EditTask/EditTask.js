@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import Navbar from '../Nav/Navbar';
 import Form from './Form';
+import { useParams } from 'react-router';
+import { useGetTaskQuery } from '../../../features/task/apiSlice';
 
 
 const EditTask = () => {
+    const { taskId } = useParams();
+    const { data: task, isLoading, isError } = useGetTaskQuery(taskId);
+    console.log(task)
+    let content = null;
 
+    if (isLoading) {
+        content = <div>Loading...</div>;
+    }
+    if (!isLoading && isError) {
+        content = <div>error...</div>;
+    }
+    if (!isLoading && !isError && task ?.id) {
+        content = <Form task={task} />;
+    }
     return (
         <div>
             <Navbar />
@@ -15,7 +30,8 @@ const EditTask = () => {
         </h1>
 
                     <div className="justify-center mb-10 space-y-2 md:flex md:space-y-0">
-                        <Form />
+                        {content}
+                        {/* <Form></Form> */}
                     </div>
                 </main>
             </div>

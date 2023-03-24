@@ -20,7 +20,7 @@ const SingleLwsTask = ({ task }) => {
     }
     const naviagate = useNavigate();
     const hadnleGotoEdit = () => {
-        naviagate('/editTask')
+        naviagate(`/editTask/${id}`)
     }
     return (
         <div className="lws-task">

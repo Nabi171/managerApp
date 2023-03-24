@@ -22,6 +22,10 @@ export const apiSlice = createApi({
             keepUnusedDataFor: 600,
             providesTags: ["tags"],
         }),
+        getTask: builder.query({
+            query: (taskId) => `/tasks/${taskId}`,
+            providesTags: (result, error, arg) => [{ type: "Task", id: arg }],
+        }),
         addTasks: builder.mutation({
             query: (data) => ({
                 url: "/tasks",
@@ -37,6 +41,18 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["tasks"],
         }),
+        editTask: builder.mutation({
+            query: ({ id, data }) => ({
+                url: `/tasks/${id}`,
+                method: "PATCH",
+                body: data,
+            }),
+            invalidatesTags: (result, error, arg) => [
+                "tasks",
+                { type: "Task", id: arg.id },
+
+            ],
+        }),
 
 
     }),
@@ -46,7 +62,9 @@ export const {
     useGetProjectsQuery,
     useGetTeamQuery,
     useGetTasksQuery,
+    useGetTaskQuery,
     useAddTasksMutation,
+    useEditTaskMutation,
     useDeleteTaskMutation,
 
 
