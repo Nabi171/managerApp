@@ -10,8 +10,8 @@ import { useDeleteTaskMutation } from '../../../features/task/apiSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 const SingleLwsTask = ({ task }) => {
-    const { taskName, deadline, status, id } = task;
-    const Imgid = id;
+    const { taskName, teamMember, deadline, status, id } = task;
+    const Imgid = teamMember.id;
     const [deleteTask, { isSuccess, isLoading, isError }] = useDeleteTaskMutation();
     const dispatch = useDispatch();
     const handleDelete = () => {
