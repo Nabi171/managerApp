@@ -93,8 +93,6 @@ const Home = () => {
                         <div className="mt-3 space-y-4">
                             {content}
 
-
-
                         </div>
                     </div>
                     <TeamMembers />

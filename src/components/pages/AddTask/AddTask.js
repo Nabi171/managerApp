@@ -6,7 +6,8 @@ const AddTask = () => {
     const [addTasks, { isLoading, isSuccess, isError }] = useAddTasksMutation();
     const [taskName, setTaskName] = useState("");
     const [teamMember, setName] = useState({
-        name: ""
+        name: "",
+        id: 2,
     });
     const [project, setprojectName] = useState({
         projectName: "Product Cart",
