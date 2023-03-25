@@ -51,7 +51,7 @@ const SingleLwsTask = ({ task }) => {
                     </p>
                 </div>
                 {/* <!-- delete button will not shown to the ui, until the status of the task will be completed --> */}
-                {status !== "completed" && <button
+                {status == "completed" && <button
                     onClick={handleDelete}
                     className="lws-delete">
                     <svg

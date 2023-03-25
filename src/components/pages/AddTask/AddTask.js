@@ -42,7 +42,7 @@ const AddTask = () => {
 
         });
         navigate('/')
-
+        window.location.reload();
     };
 
     return (
