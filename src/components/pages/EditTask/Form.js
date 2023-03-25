@@ -17,15 +17,27 @@ const Form = ({ task }) => {
     const [taskName, setTaskName] = useState(initialTaskName);
     const [teamMember, setTeamMember] = useState(
 
-        { name: initialTeamMember });
+        {
+            name: initialTeamMember,
+            id: 1,
+        });
 
 
-    const [project, setProject] = useState(initialProject);
+    const [project, setProject] = useState({
+        projectName: initialProject,
+        colorClass: "color-productCart"
+    });
+    const handleProjectName = (e) => {
+        const { projectName, value } = e.target;
+        setProject((prevFormData) => ({ ...prevFormData, [projectName]: value }))
+        // setprojectName(e.target.value)
+    }
     const [deadline, setDeadline] = useState(initialDeadline);
     const handleName = (e) => {
         const { name, value } = e.target;
         setTeamMember((prevFormData) => ({ ...prevFormData, [name]: value }))
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         editTask({
@@ -79,8 +91,9 @@ const Form = ({ task }) => {
             <div className="fieldContainer">
                 <label for="lws-projectName">Project Name</label>
                 <select
-                    value={project}
-                    onChange={(e) => setProject(e.target.value)}
+                    // value={project}
+                    // onChange={(e) => setProject(e.target.value)}
+                    onChange={handleProjectName}
                     id="lws-projectName" name="projectName" required>
                     <option
                         value=""
