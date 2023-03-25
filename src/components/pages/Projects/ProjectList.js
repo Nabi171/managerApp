@@ -1,52 +1,9 @@
 import React, { useState } from 'react';
-import { useGetProjectsQuery, useGetTasksQuery } from '../../../features/task/apiSlice';
+import { useGetProjectsQuery } from '../../../features/task/apiSlice';
 import SingleProjectList from './SingleProjectList';
 
 const ProjectList = () => {
     const { data: projects, isLoading, isError } = useGetProjectsQuery();
-
-
-    //checkbox
-    // const { data: tasks, isLoading2, isError2 } = useGetTasksQuery();
-    // const [checkboxValues, setCheckboxValues] = useState([]);
-    // const handleCheckboxChange = (event) => {
-    //     const value = event.target.value;
-    //     if (event.target.checked) {
-    //         setCheckboxValues([...checkboxValues, value]);
-    //     } else {
-    //         setCheckboxValues(checkboxValues.filter((val) => val !== value));
-    //     }
-    // };
-    // const filteredData = tasks.filter((item) => {
-    //     return checkboxValues.includes(item.taskName);
-    // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
