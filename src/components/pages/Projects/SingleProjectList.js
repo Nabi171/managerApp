@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useGetTasksQuery } from '../../../features/task/apiSlice';
+// import { useGetTasksQuery } from '../../../features/task/apiSlice';
 
 const SingleProjectList = ({ project }) => {
     const { colorClass, projectName } = project;
